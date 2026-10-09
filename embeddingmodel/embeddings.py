@@ -5,7 +5,11 @@ embeddings=OpenAIEmbeddings(
      model="text-embedding-3-small",
      dimensions=64
 )
-
-vector=embeddings.embed_query("hello my name is neha")
+texts=[
+     "my name is neha",
+     "my age is 24 years old",
+     "i work in newgen"
+]
+vector=embeddings.embed_documents(texts)
 print(vector)
 
