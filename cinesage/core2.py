@@ -1,10 +1,26 @@
 from dotenv import load_dotenv
 load_dotenv()
-
+from pydantic import BaseModel
+from typing import List, Optional
+from langchain_core.output_parsers import PydanticOutputParser
 import streamlit as st
 
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
+#schema for ai using pydantic
+class Movie(BaseModel):
+    title:str
+    release_year : Optional[int]
+    genre: List[str]
+    director:Optional[str]
+    cast:List[str]
+    rating:Optional[float]
+    summary:str
+
+#pydantic parser to validate data entered by user
+parser=PydanticOutputParser(pydantic_object=Movie)
+
+
 
 
 # Streamlit UI
