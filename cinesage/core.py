@@ -6,6 +6,7 @@ from langchain_core.prompts import PromptTemplate
 
 
 # Movie information
+
 movie_paragraph = """
 Interstellar is a 2014 science-fiction film directed by Christopher Nolan.
 The story is set in a future where Earth is suffering from severe environmental
