@@ -1,12 +1,20 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import streamlit as st
+
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 
 
-# Take movie information from the user
-movie_paragraph = input("Enter the movie information: ")
+# Streamlit UI
+st.title("🎬 Movie Information Extractor")
+
+movie_paragraph = st.text_area(
+    "Enter the movie information:",
+    height=250,
+    placeholder="Paste the movie paragraph here..."
+)
 
 
 # Create ChatPromptTemplate using from_messages()
@@ -57,23 +65,24 @@ model = ChatOpenAI(
 )
 
 
-# # Fill the {movie} placeholder
-# formatted_messages = prompt.format_messages(
-#     movie=movie_paragraph
-# )
-formatted_messages=prompt.invoke(
-    {
-        "movie":movie_paragraph
-    }
-)
+# Button
+if st.button("Extract Information"):
 
+    if movie_paragraph:
 
-# Send messages to the model
-response = model.invoke(formatted_messages)
+        # Fill the {movie} placeholder
+        formatted_messages = prompt.invoke(
+            {
+                "movie": movie_paragraph
+            }
+        )
 
+        # Send messages to the model
+        response = model.invoke(formatted_messages)
 
+        # Display the response
+        st.subheader("🎬 Extracted Information")
+        st.write(response.content)
 
-
-# Print the response
-print("\nBOT:")
-print(response.content)
+    else:
+        st.warning("Please enter movie information first.")
