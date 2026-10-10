@@ -11,5 +11,9 @@ llm = HuggingFacePipeline.from_model_id(
 )
 
 chat_model = ChatHuggingFace(llm=llm)
-result=chat_model.invoke("what is data science?")
-print(result.content)
+while True:
+    prompt=input("you: ")
+    if prompt=="0":
+        break
+    result=chat_model.invoke(prompt)
+    print("Bot: ",result.content)
