@@ -1,0 +1,28 @@
+
+# LangChain
+langchain
+langchain-core
+langchain-community
+langchain-openai
+langchain-text-splitters
+
+# OpenAI API
+openai
+tiktoken
+
+# RAG: Vector database
+faiss-cpu
+# ChromaDB vector database
+chromadb
+langchain-chroma
+
+# Document loading
+pypdf
+pymupdf
+
+# Environment variables and data validation
+python-dotenv
+pydantic
+
+# Optional: Jupyter Notebook
+ipykernel
