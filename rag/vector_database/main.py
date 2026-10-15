@@ -127,9 +127,9 @@ docs = [
     )
 ]
 
-print("Total documents:", len(docs))
-print(docs[0].page_content)
-print(docs[0].metadata)
+# print("Total documents:", len(docs))
+# print(docs[0].page_content)
+# print(docs[0].metadata)
 embeddings=HuggingFaceBgeEmbeddings()
 
 vectorstore=Chroma.from_documents(docs,embeddings)
@@ -143,3 +143,6 @@ query="what is llm?"
 
 docs=Multi_query_retriever.invoke(query)
 
+print("\n Retrieved Documents \n")
+for doc in docs:
+    print(doc.page_content)
