@@ -104,26 +104,6 @@ docs = [
             "source_type": "learning_material",
             "category": "Generative AI"
         }
-    ),
-
-    Document(
-        page_content="""
-        An AI agent is a system that uses a language model to decide
-        how to perform a task and interact with available tools.
-        Tools may include calculators, search engines, APIs, and
-        databases. A typical agent receives a request, selects an
-        action, observes the result, and decides what to do next.
-        LangChain supports the development of applications that
-        combine language models with tools. Agents can automate
-        multi-step workflows, but they require appropriate permissions,
-        error handling, and execution limits to operate reliably.
-        """,
-        metadata={
-            "id": "AI006",
-            "topic": "AI Agents",
-            "source_type": "technical_article",
-            "category": "Agentic AI"
-        }
     )
 ]
 
